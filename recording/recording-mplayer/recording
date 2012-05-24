@@ -1,0 +1,144 @@
+#!/bin/bash
+# "##########################################"
+# "##########################################"
+# "#                                        #"
+# "# Screen Recording v 0.43 beta           #"
+# "# daniel glenn                           #"
+# "# www.starwolf.ch                        #"
+# "# 01.Mai.2012                            #"
+# "#                                        #"
+# "##########################################"
+# "##########################################"
+
+# http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+################################################
+# Configuration
+################################################
+
+# Set output folder
+OutDir=$(echo ~/Videos/)
+
+#Random Video Name
+curDate=$(date +%Y_%h_%d_%H%M%S)
+
+#Video rec Name
+rec="tmp_rec_"$curDate".mkv"
+
+#Video final Name
+recF="tmp_final_"$curDate".mkv"
+
+# FPS
+r="-r 25"
+
+#Audio codec
+acodec="-acodec pcm_s16le"
+
+#Audio input
+# tool to check hw (alsa) - open terminal  and use: aplay -l
+# my output in my case is:
+#**** List of PLAYBACK Hardware Devices ****
+#card 0: Headset [Logitech USB Headset], device 0: USB Audio [USB Audio]
+#  Subdevices: 1/1
+#  Subdevice #0: subdevice #0
+
+i="-i hw:0,0" # first is card = 0 and second is device = 0 result is: hw:0,0
+#i="-i pulse" # for pulseaudio user you can use the name
+
+#Video codec and compress mode
+vcodec="-vcodec libx264 -preset ultrafast -crf 0"
+
+# rec thread count, wenn 0 dann alle moeglichen
+# t="-threads 0"
+
+################################################
+# Configuration Video Meta-Data
+################################################
+
+## title
+title="insert your title"
+
+## author
+author="inerst your name"
+
+## comment
+comment="insert your comment"
+
+## year
+year=$(date +%Y)
+
+## copyright
+copyright="$year©insert information"
+
+################################################
+# Check Input Parameter
+################################################
+
+if [ "$1" == "-h" -o "$1" == "--help" ]; then        
+        echo -e "\nUsage: recording [OPTION]"
+        echo "Option    :"
+        echo "  720     :   set hd720 Screen size"
+        echo "  1080    :   set hd1080 Screen size for full HD"
+        exit 0
+fi
+
+if [ $# -eq 0 ]; then
+        echo -e "\nUsage: recording [OPTION]"
+        echo "'recording --help' for more information."
+        exit 32
+fi
+
+# set var fuer Screen size
+s=""
+# set vlc screen size
+VlcSize=""
+
+if [ $# -eq 1 ]; then
+    if [ $1 == "720" ]; then
+        s="-s hd720"
+        #VlcSize=" --zoom=1.0 --width=1280 --height=720 --play-and-exit"
+    fi
+    if [ $1 == "1080" ]; then
+        s="-s hd1080"
+        #VlcSize=" --zoom=0.5 --width=1280 --height=720 --play-and-exit"
+    fi
+    
+    if [ $1 != "720" ] && [ $1 != "1080" ]; then
+        echo -e "\nUsage: recording [OPTION]"
+        echo "'recording --help' for more information."
+        exit 32
+    fi
+fi
+
+################################################
+# Check output-folder 
+################################################
+
+if [ -d $OutDir ]; then
+	cd $OutDir
+else 
+	mkdir $OutDir
+	cd $OutDir
+fi 
+
+################################################
+# Run Recording 
+################################################
+
+ffmpeg -f alsa -ac 1  $i -f x11grab $r $s -i :0.0 $acodec $vcodec $rec
+
+#echo "schreibe Meta-Data in das Video"
+ffmpeg -i $rec -vcodec copy -acodec copy -metadata title="$title" -metadata comment="$comment" -metadata author="$author" -metadata year="$year" -metadata copyright="$copyright" $recF
+
+# loeschen vom video tmp file
+rm -f $rec
+
+################################################
+# Open mplayer
+################################################
+echo "running mplayer.."
+mplayer -x 1280 -y 720 $recF
+# clear
+
+# Alles war o.k und jetzt beenden
+exit 0

@@ -1,0 +1,85 @@
+
+Namespace			:Ch.Heroku
+Full Namespace		:Ch.Heroku.Entities.Role
+Entity				:Role
+	--------------------------------------------------------------------------
+	PropertyName				:Id
+	Type						:System.__ComObject
+	IsBindableType				:True
+
+	IsDouble					:False
+	IsString					:False
+	IsBool						:False
+	Isint						:True
+	IsDateTime					:False
+
+	IsReadable					:True
+	HasIndexParameters			:True
+
+	FullName					:Ch.Heroku.Entities.Role.Id
+	AsFullName					:System.Int32
+	MaxLenght					:
+	IsRequired					:True
+
+	GetValueExpression			:False
+	--------------------------------------------------------------------------
+	PropertyName				:RoleName
+	Type						:System.__ComObject
+	IsBindableType				:True
+
+	IsDouble					:False
+	IsString					:True
+	IsBool						:False
+	Isint						:False
+	IsDateTime					:False
+
+	IsReadable					:True
+	HasIndexParameters			:True
+
+	FullName					:Ch.Heroku.Entities.Role.RoleName
+	AsFullName					:System.String
+	MaxLenght					:100
+	IsRequired					:True
+
+	GetValueExpression			:False
+	--------------------------------------------------------------------------
+	PropertyName				:ModifedAt
+	Type						:System.__ComObject
+	IsBindableType				:True
+
+	IsDouble					:False
+	IsString					:False
+	IsBool						:False
+	Isint						:False
+	IsDateTime					:False
+
+	IsReadable					:True
+	HasIndexParameters			:True
+
+	FullName					:Ch.Heroku.Entities.Role.ModifedAt
+	AsFullName					:System.DateTime
+	MaxLenght					:8
+	IsRequired					:False
+
+	GetValueExpression			:False
+	--------------------------------------------------------------------------
+	PropertyName				:Users
+	Type						:System.__ComObject
+	IsBindableType				:False
+
+	IsDouble					:False
+	IsString					:False
+	IsBool						:False
+	Isint						:False
+	IsDateTime					:False
+
+	IsReadable					:True
+	HasIndexParameters			:True
+
+	FullName					:Ch.Heroku.Entities.Role.Users
+	AsFullName					:System.Collections.Generic.ICollection<Ch.Heroku.Entities.User>
+	MaxLenght					:
+	IsRequired					:False
+
+	GetValueExpression			:True
+

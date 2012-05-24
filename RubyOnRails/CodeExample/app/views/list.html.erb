@@ -1,0 +1,37 @@
+<!--
+################################################
+# template liste
+# daniel glenn <glenn@starwolf.ch>
+# 05.06.2011 init template
+# 10.07.2011 nochmals angeschaut und formatierung angepasst wegen neuer version
+# von gmate
+# Todo: css verbessern
+################################################
+-->
+<% @page_title = "Admin Users List" %>
+<%= link_to("<< Abbruch", {:controller => 'access', :action => 'menu'}, :class => 'back-link') %>
+<div class="content">
+  <h2>Admin Users</h2>
+  <%= link_to('Neuer Admin erstellen', {:action => 'new'}, :class => 'back-link') %>
+  <div><%= pluralize(@admin_users.size, 'admin user') %> found</div>
+  <table class="tbl">
+    <tr>
+      <th>Username</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+    <% @admin_users.each do |admin_user| %>
+    <tr>
+      <td><%= admin_user.username %></td>
+      <td><%= admin_user.name %></td>
+      <td><%= mail_to(admin_user.email) %></td>
+      <td>
+        <%= link_to('Edit', {:action => 'edit', :id => admin_user.id}, :class => 'back-link') %>
+        <%= link_to('Delete', {:action => 'delete', :id => admin_user.id}, :class => 'back-link') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+

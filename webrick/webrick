@@ -1,0 +1,61 @@
+#!/bin/bash
+# "##########################################"
+# "##########################################"
+# "#                                        #"
+# "# WebRick                                #"
+# "# daniel glenn                           #"
+# "# www.starwolf.ch                        #"
+# "# 05.May.2011                            #"
+# "# happy birthday Theo my brother         #"
+# "# the force is strong with you           #"
+# "##########################################"
+# "##########################################"
+
+# http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+Green="\e[0;32m"        # Green
+BGreen="\e[1;32m"       # Bold Green
+White="\e[0;37m"        # White
+BWhite="\e[1;37m"       # Bold White
+
+
+if [ "$1" == "-h" -o "$1" == "--help" ]; then
+        echo -e "\nUsage: webrick [OPTION]"
+        echo "Option    :"
+        echo "  start   :   start Webrick in screen"
+        echo "  stop    :   stop Webrick in screen"
+        echo "  reload  :   reload Webrick in screen"
+        echo "  l       :   list screen"
+        exit 0
+fi
+
+if [ $# -eq 0 ]; then
+        echo -e "\nUsage: WeRrick [OPTION]"
+        echo "'webrick --help' for more information."
+        exit 32
+fi
+
+if [ $# -eq 1 ]; then
+    if [ "$1" == "start" -o "$1" == "START" ]; then
+        echo -e "${BGreen} * ${BWhite} start WebRick"
+        screen -dmS Web rails s > /dev/null
+    fi
+    if [ "$1" == "stop" -o "$1" == "STOP" ]; then
+        echo -e "${BGreen} * ${BWhite} stop WebRick"
+        screen -S Web -X quit > /dev/null
+    fi
+    if [ "$1" == "l" -o "$1" == "list" ]; then
+        echo -e "${BGreen} * ${BWhite} list screen"
+        screen -ls
+    fi
+
+    if [ "$1" == "reload" -o "$1" == "RELOAD" ]; then
+        echo -e "${BGreen} * ${BWhite} reload WebRick - stop"
+        screen -S Web -X quit > /dev/null
+        sleep 2
+        echo -e "${BGreen} * ${BWhite} reload WebRick - start"
+        screen -dmS Web rails s > /dev/null
+    fi
+fi
+exit 0
+

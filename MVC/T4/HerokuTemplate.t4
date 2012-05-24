@@ -1,0 +1,109 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output extension="txt" #>
+<#@ assembly name="System.ComponentModel.DataAnnotations" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data.Entity" #>
+<#@ assembly name="System.Data.Linq" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.ComponentModel.DataAnnotations" #>
+<#@ import namespace="System.Data.Linq.Mapping" #>
+<#@ import namespace="System.Data.Objects.DataClasses" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="EnvDTE80" #>
+
+<# var viewDataType = (EnvDTE.CodeType) Model.ViewDataType; #>
+Namespace			:<#= Model.Namespace #>
+Full Namespace		:<#= viewDataType.FullName #>
+Entity				:<#= viewDataType.Name #>
+<#
+foreach (var prop in viewDataType.VisibleMembers().OfType<EnvDTE.CodeProperty>()) {
+#>
+	--------------------------------------------------------------------------
+	PropertyName				:<#= prop.Name #>
+	Type						:<#= prop.Type #>
+	IsBindableType				:<#= IsBindableType(prop.Type) #>
+
+	IsDouble					:<#= prop.Type.UnderlyingTypeIs<double>() #>
+	IsString					:<#= prop.Type.UnderlyingTypeIs<string>() #>
+	IsBool						:<#= prop.Type.UnderlyingTypeIs<bool>() #>
+	Isint						:<#= prop.Type.UnderlyingTypeIs<int>() #>
+	IsDateTime					:<#= IsDateTime(prop) #>
+
+	IsReadable					:<#= prop.IsReadable() #>
+	HasIndexParameters			:<#= !prop.HasIndexParameters() #>
+
+	FullName					:<#= prop.FullName #>
+	AsFullName					:<#= prop.Type.AsFullName #>
+	MaxLenght					:<#= GetMaxLength(prop) #>
+	IsRequired					:<#= IsRequired(prop) #>
+
+	GetValueExpression			:<#= !IsBindableType(prop.Type) #>
+<#}#>
+
+<#+
+
+bool IsDateTime(EnvDTE.CodeProperty propInfo) {
+	return propInfo.Type.UnderlyingTypeIs<bool>();
+}
+
+string GetMaxLength(EnvDTE.CodeProperty propInfo) {
+	 var attributes = propInfo.Attributes.OfType<CodeAttribute2>();
+	 if(attributes == null){ return "";}
+	 var me = attributes.FirstOrDefault(x => x.Name == "MaxLength");
+	 if(me == null){ return "";}
+	 var firstArgValue = me.Value.Split(',').FirstOrDefault();
+	 return firstArgValue;
+	
+}
+bool IsRequired(EnvDTE.CodeProperty propInfo){
+	 var attributes = propInfo.Attributes.OfType<CodeAttribute2>();
+	 var me = attributes.FirstOrDefault(x => x.Name == "Required");
+	 if(me == null) {
+		return false;
+	 }
+
+	return true;
+}
+
+// propertyType.FindProperty(displayPropertyNames);
+
+static string[] HasAttributMaxLength = new[] {"MaxLengthAttribute"};
+static string[] HasAttributRequired = new[] {"RequiredAttribute"};
+static string[] displayPropertyNames = new[] { "Name", "Title", "LastName", "Surname", "Subject", "Count" };
+
+// Describes the information about a property on the model
+class ModelProperty {
+    public string Name { get; set; }
+    public string ValueExpression { get; set; }
+	public EnvDTE.CodeTypeRef Type { get; set; }
+    public bool IsPrimaryKey { get; set; }
+	public bool IsForeignKey { get; set; }
+	public bool IsReadOnly { get; set; }
+	public bool IsRequired { get; set; }
+	public bool HasMaxLength { get; set; }
+	public int	MaxLength { get; set; }
+}
+
+// Liste von NonPrimitiveTypes die aber bearbeitet werden sollten in einem input
+static Type[] bindableNonPrimitiveTypes = new[] {
+    typeof(string),
+    typeof(decimal),
+    typeof(Guid),
+    typeof(DateTime),
+    typeof(DateTimeOffset),
+    typeof(TimeSpan),
+};
+
+// Helper  Code Type Ref
+bool IsBindableType(EnvDTE.CodeTypeRef type) {
+    return type.UnderlyingIsPrimitive() || bindableNonPrimitiveTypes.Any(x => type.UnderlyingTypeIs(x));
+}
+
+IEnumerable<RelatedEntityInfo> ParentRelations {
+	get { return ((IEnumerable)Model.RelatedEntities).OfType<RelatedEntityInfo>().Where(x => x.RelationType == RelationType.Parent); }
+}
+#>

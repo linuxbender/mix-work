@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# "##########################################"
+# "##########################################"
+# "#                                        #"
+# "# daily-build script for blender         #"
+# "# daniel glenn                           #"
+# "# www.starwolf.ch                        #"
+# "# 28.May.2011                            #"
+# "##########################################"
+# "##########################################"
+
+# http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+curVersion="blender-2.58.1-64bit-r"
+
+cd ~ && cd build-blender/blender
+svn up
+
+# curRev=`svn info https://svn.blender.org/svnroot/bf-blender/trunk/blender | grep Revision | tr -d 'Revison: '`
+curRev="$(svn info | grep 'Revision: ' | grep -o '[0123456789]'| xargs |tr -d ' ')"
+curName=$curVersion$curRev
+
+cd .. && cd cmake
+make clean
+rm -Rf bin
+cmake ../blender
+make -j9  #VERBOSE=1 >> build002.txt ## -dump to file in the cmake folder
+make install
+
+mkdir ../upload/$curName
+cp -Rf bin/2.58 ../upload/$curName
+cp -Rf bin/text/* ../upload/$curName
+cp -f bin/blender ../upload/$curName
+cp -f bin/blender.svg ../upload/$curName
+cd ../upload && tar -pczf $curName".tar.gz" $curName
+rm -Rf ~/program/blender-2.6/*
+cp -Rf $curName/* ~/program/blender-2.6
+rm -Rf $curName && cd ~/program/blender-2.6 && ./blender
+

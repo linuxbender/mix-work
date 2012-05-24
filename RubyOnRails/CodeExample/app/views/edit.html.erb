@@ -1,0 +1,22 @@
+<!--
+################################################
+# template edit
+# daniel glenn <glenn@starwolf.ch>
+# 05.06.2011 init template
+# 10.07.2011 nochmals angeschaut und formatierung angepasst wegen neuer version
+# von gmate
+# Todo: css verbessern
+################################################
+-->
+<% @page_title = "Edit Admin: #{@admin_user.name}" -%>
+<%= link_to("<< Abbruch", {:action => 'list'}, :class => 'back-link') %>
+<div class="content">
+  <h2>Edit Admin</h2>
+  <%= form_for(:admin_user, :url => {:action => 'update', :id => @admin_user.id}) do |f| %>
+  	<%= render(:partial => 'form', :locals => {:f => f} ) %>
+  	<div>
+  	  <%= submit_tag('Update Admin') %>
+    </div>
+  <% end %>
+</div>
+

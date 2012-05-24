@@ -1,0 +1,31 @@
+import bpy
+op = bpy.context.active_operator
+
+op.AutoUpdate = True
+op.SphereMesh = True
+op.SmoothMesh = True
+op.Subdivision = 150
+op.MeshSize = 2.0
+op.RandomSeed = 1
+op.NoiseSize = 0.800000011920929
+op.NoiseType = '2'
+op.BasisType = '3'
+op.VLBasisType = '0'
+op.Distortion = 1.0
+op.HardNoise = True
+op.NoiseDepth = 8
+op.mDimension = 0.699999988079071
+op.mLacunarity = 2.5
+op.mOffset = 1.0
+op.mGain = 1.0
+op.MarbleBias = '0'
+op.MarbleSharp = '2'
+op.MarbleShape = '5'
+op.Invert = False
+op.Height = 0.30000001192092896
+op.Offset = 0.0
+op.Falloff = '1'
+op.Sealevel = 0.0
+op.Plateaulevel = 10.0
+op.Strata = 3.0
+op.StrataType = '0'

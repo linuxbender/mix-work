@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>NetBox</title>
+		<meta content="NetBox, Ping, Traceroute, Nslookup, Nmap, Whois" name="keywords" />
+		<meta content="NetBox - online network analysis tool - run requests for Ping, Traceroute, Nslookup, Nmap and Whois" name="description" />
+		<meta content="glenn from starwolf.ch" name="author" />
+		<meta http-equiv="expires" />
+		<link media="all" type="text/css" href="css/net.css" rel="stylesheet" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+		<script type="text/javascript" src="js/net/net.js"></script>
+	</head>
+	<body>
+		<div id="main">
+			<div id="top">
+				<div id="navigation">
+					<div class="left"></div>
+					<ul>
+						<li id="Ping">
+							<a href="#">ping</a>
+						</li>
+						<li id="Traceroute">
+							<a href="#">traceroute</a>
+						</li>
+						<li id="NSlookup">
+							<a href="#">nslookup</a>
+						</li>
+						<li id="Nmap">
+							<a href="#">nmap</a>
+						</li>
+						<li id="Whois" class="last">
+							<a href="#">whois</a>
+						</li>
+					</ul>
+					<div class="right"></div>
+				</div>
+			</div>
+			<div id="content">
+				<div class="content-header"><h2>NetBox - Ping Tool</h2></div>
+				<div id="content-form">
+					<div id="fmPing">
+						<label>URL</label><input id="fmPingURL"  type="text" value="www.gnome.org">&nbsp;
+						<input id="fmPingSend" type="button" value="run">
+						<img id="fmPingProcess" width="16" height="16" border="0" src="images/net/9.gif"/>
+					</div>
+					<div id="fmTraceroute">
+						<label>URL</label><input id="fmTracerouteURL" type="text" value="www.blender.org"/>
+						<label>Port</label><input id="fmTraceroutePORT" type="text" value="80" />&nbsp; 
+						<input id ="fmTracerouteSend" type="button" value="run"/>
+						<img id="fmTracerouteProcess" width="16" height="16" border="0" src="images/net/9.gif"/>
+					</div>
+					<div id="fmNSlookup">
+                                                <label>URL</label><input id="fmNSlookupURL" type="text" value="gmail.com"/>
+                                                <label>TYPE</label><input id="fmNSlookupTYPE" type="text" value="MX" />&nbsp;
+                                                <input id ="fmNSlookupSend" type="button" value="run"/>
+                                                <img id="fmNSlookupProcess" width="16" height="16" border="0" src="images/net/9.gif"/>
+                                        </div>
+                                        <div id="fmNmap">
+						<label>URL</label><input id="fmNmapURL" type="text" value="www.starwolf.ch"/>
+						<label>Port</label><input id="fmNmapPORT" type="text" value="21" />&nbsp; 
+						<input id ="fmNmapSend" type="button" value="run"/>
+						<img id="fmNmapProcess" width="16" height="16" border="0" src="images/net/9.gif"/>
+					</div>
+					<div id="fmWhois">
+						<label>URL</label><input id="fmWhoisURL"  type="text" value="gentoo.org">&nbsp;
+						<input id="fmWhoisSend" type="button" value="run">
+						<img id="fmWhoisProcess" width="16" height="16" border="0" src="images/net/9.gif"/>
+					</div>
+				</div>
+				<div id="content-out">
+					<div class="content-response-header"><h4>Response : </h4></div>
+					<div id="content-response"></div>
+				</div>
+			</div>
+			<div id="footer">
+				2011 &copy; starwolf.ch - hosting powered by kernelpanic.ch
+			</div>
+		</div>
+	</body>
+</html>

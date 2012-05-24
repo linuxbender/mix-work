@@ -1,0 +1,22 @@
+<!--
+################################################
+# template erstellen
+# daniel glenn <glenn@starwolf.ch>
+# 05.06.2011 init template
+# 10.07.2011 nochmals angeschaut und formatierung angepasst wegen neuer version
+# von gmate
+# Todo: css verbessern
+################################################
+-->
+<% @page_title = 'Create Admin User' %>
+<%= link_to("<< Abbruch", {:action => 'list'}, :class => 'indexlink') %>
+<div class="content">
+  <h2>Admin erstellen</h2>
+  <%= form_for(:admin_user, :url => {:action => 'create'}) do |f| %>
+    <%= render(:partial => 'form', :locals => {:f => f} ) %>
+    <div>
+      <%= submit_tag('Admin erstellen') %>
+    </div>
+  <% end %>
+</div>
+

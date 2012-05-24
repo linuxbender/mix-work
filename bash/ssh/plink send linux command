@@ -1,0 +1,1 @@
+C:\TMP\plink.exe -ssh -P 22 -2 -4 -i dsa_2_1024_storage.ppk DemoUser@www.demo.dev "cat ls -l"

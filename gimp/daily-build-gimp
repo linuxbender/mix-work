@@ -1,0 +1,97 @@
+#!/bin/sh
+# "##########################################"
+# "##########################################"
+# "#                                        #"
+# "# daily-build script for gimp            #"
+# "# daniel glenn                           #"
+# "# www.starwolf.ch                        #"
+# "# 01.July.2011                           #"
+# "##########################################"
+# "##########################################"
+#
+# http://creativecommons.org/licenses/by-nc-sa/3.0/
+#
+
+###########################
+# git repo list
+###########################
+# git clone --depth 1 git://git.gnome.org/babl
+# git clone --depth 1 git://git.gnome.org/gegl
+# git clone --depth 1 git://git.gnome.org/gimp
+###########################
+# folder layout
+###########################
+# mkdir ~/build-gimp
+# mkdir ~/build-gimp/babl
+# mkdir ~/build-gimp/gegl
+# mkdir ~/build-gimp/gimp
+# mkdir ~/build-gimp/upload
+# mkdir ~/build-gimp/upload/gimp-2.7.3
+
+###########################
+# configuration
+###########################
+# set install dir
+export INSTALL_PREFIX=/opt/gimp-2.7.3
+# set source dir
+export SRC_DIR=~/build-gimp/gimp
+# set bin, lib, share dir
+export PATH=$INSTALL_PREFIX/bin:$PATH
+export PKG_CONFIG_PATH=$INSTALL_PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=$INSTALL_PREFIX/lib:$LD_LIBRARY_PATH
+export XDG_DATA_DIRS=$INSTALL_PREFIX/share
+
+# CPU core count +1
+JCount=-j4
+# build-name
+curVersion="gimp-2.7.3"
+
+###########################
+# remove old build
+###########################
+# uninstall last build
+sudo rm -Rf $INSTALL_PREFIX
+sudo mkdir $INSTALL_PREFIX
+
+###########################
+# babl
+###########################
+cd ~/build-gimp/babl
+# clean last compile bin
+make clean
+git pull
+./autogen.sh --prefix=$INSTALL_PREFIX
+make $JCount
+sudo make install
+###########################
+# gegl
+###########################
+cd ~/build-gimp/gegl
+make clean
+git pull
+./autogen.sh --prefix=$INSTALL_PREFIX --disable-docs
+make $JCount
+sudo make install
+###########################
+# gimp
+###########################
+cd ~/build-gimp/gimp
+make clean
+git pull
+./autogen.sh --prefix=$INSTALL_PREFIX --without-dbus --without-hal --without-alsa --disable-gtk-doc --without-linux-input
+make $JCount
+sudo make install
+###########################
+# build package
+###########################
+rm -Rf ~/build-gimp/upload/$curVersion
+cp -Rf $INSTALL_PREFIX ~/build-gimp/upload/
+cd ~/build-gimp/upload && tar -pczf $curName".tar.gz" $curVersion
+
+
+
+
+
+
+
+

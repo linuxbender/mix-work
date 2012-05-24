@@ -1,0 +1,24 @@
+<!--
+################################################
+# template delete
+# daniel glenn <glenn@starwolf.ch>
+# 05.06.2011 init template
+# 10.07.2011 nochmals angeschaut und formatierung angepasst wegen neuer version
+# von gmate
+# Todo: css verbessern
+################################################
+-->
+<% @page_title = "Admin löschen: #{@admin_user.name}" %>
+<%= link_to("<< Abbruch", {:action => 'list'}, :class => 'back-link') %>
+<div class="content">
+  <h2>Admin löschen</h2>
+ <!-- action destroy -->
+  <%= form_for(:admin_user, :url => {:action => 'destroy', :id => @admin_user.id}) do |f| -%>
+    <p>Admin wirklich löschen?</p>
+    <p ><%= @admin_user.name %></p>
+    <div>
+      <%= submit_tag("Delete Admin") %>
+    </div>
+  <% end %>
+</div>
+

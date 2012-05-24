@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Starwolf.Ch.App.ActionExcel.Models.Tbl.tblToDo>
+<table>
+        <tr>
+            <th>tblTodoID</th>
+            <th>tblActionID</th>
+            <th>tblMessage</th>
+        </tr>
+        @foreach (var item in Model)
+	    {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.tblToDoID)</td>
+                <td>@Html.DisplayFor(modelItem => item.tblActionID)</td>
+                <td>@Html.DisplayFor(modelItem => item.tblMessage)</td>
+            </tr>
+    	}
+</table>
+

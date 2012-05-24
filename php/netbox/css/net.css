@@ -1,0 +1,163 @@
+/*
+************************************************************
+<CSS>
+	<NAME>net.css</NAME>
+	<AUTOR>glenn</AUTOR>
+	<LOCATION>CH</LOCATION>
+	<PROJECT>NetBox</PROJECT>
+	<TECHNOLOGY>LAMP</TECHNOLOGY>
+	<DATE>2010-10-15</DATE>
+	<VERSION>1.00</VERSION>
+	<COMMENT><![CDATA[n.a]]></COMMENT>
+	<DESCRITION>
+		<![CDATA[
+		CSS for the NetBox.
+		]]>
+	</DESCRITION>
+	<DOCHISTORY><![CDATA[n.a]]></DOCHISTORY>
+</CSS>
+************************************************************
+*/
+html,body {
+	background: url('../images/net/NetboxBeta.png') no-repeat top ;
+	margin: 0;
+	padding:0;
+	background-color: #222121;
+	font-family: "Arial", "Helvetica", "Verdana", "sans-serif";
+	font-size: 10px;
+}
+
+#main {
+	margin: 0 auto;
+	padding:0;
+	width: 956px;
+	position: relative;
+	border-left:1px solid #eee;
+	border-right:1px solid #eee;
+	border-bottom:1px solid #eee;
+}
+
+#top {
+	height: 115px;
+}
+
+/************************************************/
+/* Navigation                                   */
+/************************************************/
+#navigation {
+	height: 41px;
+	float: left;
+	position: absolute;
+	top: 40px;
+	right: 20px;
+}
+
+#navigation .left {
+	float: left;
+	width: 5px;
+	height: 41px;
+	background: url('../images/net/navigation_l.png') no-repeat left top;
+}
+
+#navigation .right {
+	float: left;
+	width: 3px;
+	height: 41px;
+	background: url('../images/net/navigation.png') no-repeat right top;
+}
+
+#navigation ul,
+#navigation ul li {
+	float: left;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	line-height: 38px;
+}
+
+#navigation ul {
+	height: 41px;
+	background: url('../images/net/navigation.png') repeat-x 0 -41px;
+}
+
+#navigation ul li a {
+	float: left;
+	display: block;
+	height: 41px;
+	padding: 0 18px;
+	color: #ccc;
+	text-decoration: none;
+	background: url('../images/net/navigation_s.png') no-repeat right top;
+}
+
+#navigation ul li.selected a {
+	color: #ffffff;
+}
+
+#navigation ul li.last a{
+	background-image: none;
+}
+
+#navigation ul li a:hover {
+	color: #ffffff;
+}
+
+/************************************************/
+/* Content                                      */
+/************************************************/
+#content {
+	background-color: #ffffff;
+	padding: 2px 2px 2px 2px;
+}
+
+#content-form {
+	margin: 5px 10px 5px;
+	padding: 5px 10px 5px;
+}
+
+#content-out {
+	padding: 5px 10px 5px;
+	min-height:550px;
+	height:auto;
+}
+
+.content-header {
+	float:left;
+	width:100%;
+	border-bottom:4px solid #eee;
+	margin: 5px 0px 10px 0px;
+}
+
+.content-header h2 {
+	clear:left;
+	font-size:20px;
+}
+
+.content-response-header {
+	border-bottom:4px solid #eee;
+	line-height:1.2em;
+	margin-bottom:5px;
+	margin-top:1.5em;
+	padding-bottom:5px;
+	padding-left:8px;
+}
+
+.content-response-header {
+	color:#E87B10;
+	font:1.1em "Trebuchet MS","Helvetica","Arial","Verdana","sans-serif";
+	margin:0;
+	padding:0;
+}
+
+/************************************************/
+/* Footer                                       */
+/************************************************/
+#footer {
+	background-color: #111111;
+	color:#eee;
+	font:12px "Trebuchet MS","Helvetica","Arial","Verdana","sans-serif";
+	padding:6px 10px 0px 10px;
+	/*padding:4px 6px 6px 4px;*/
+	height:40px;
+}

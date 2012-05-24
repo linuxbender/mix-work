@@ -1,0 +1,26 @@
+#
+# daniel glenn
+#
+
+Wurden mit PUTTYGEN erzeugt:
+
+Public Key - File Name enden mit _pub z.B: dsa_2_1024_storage.pub
+Private Key mit der File extension *.ppk z.B: dsa_2_1024_storage.ppk
+
+Beschreibung:
+ 
+Verschlüsselungs Art : dsa
+SSh Version : 2
+verschlüsselungs Stärke : 1024 bit
+Name : storage
+Public or private Key: .pub or *.ppk
+
+Key Passphrase : password
+
+#01 Den Public Key im Home {cd ~ } Profile vom User ablegen unter dem  Folder { cd .ssh }
+
+#02 Den Public key am ssh-again registrieren
+
+#03 Test z.b mit plink unter MS Windows
+
+C:\TMP\plink.exe -ssh -P 22 -2 -4 -i dsa_2_1024_storage.ppk DemoUser@www.demo.dev "cat ls -l"

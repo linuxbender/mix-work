@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# scp copy files to remote server - using other port
+scp -P 12345 * webuser@www.webuser.ch:~/www/git/
+
+# scp copy files to local workstation - using other port
+scp -P 12345 -r webuser@www.webuser.ch:~/www/git/ .
+
+# Tip: run scp first to create folders
+# rsync with remote server over ssh on a other port
+rsync -e "ssh -p 12345" -r --progress -av * webuser@www.webuser.ch:~/www/git/

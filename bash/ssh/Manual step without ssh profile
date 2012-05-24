@@ -1,0 +1,3 @@
+#01 eval $(ssh-agent)
+#02 chmod 0600 .ssh/dsa_2_1024_demo_pub:
+#03 ssh-add .ssh/dsa_2_1024_demo_pub:
