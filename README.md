@@ -1,4 +1,6 @@
-mix-work
-========
+Repo mix-work
+================================================================================
++ daniel glenn
++ Free code and work products.
 
-mix-work
+Clean up and init a fresh repo 2012
