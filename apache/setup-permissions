@@ -1,0 +1,17 @@
+# gentoo linux
+sudo groupadd wwwpub
+
+# add to user glenn
+sudo usermod -a -G wwwpub glenn
+
+# show groups from glenn
+sudo groups glenn
+
+# add permissions to wwwpub dir
+sudo chown -R root:wwwpub www_root
+
+chmod 2775 www_root
+
+find www_root -type d -exec chmod 2775 {} \;
+
+find www_root -type f -exec chmod 0664 {} \;
