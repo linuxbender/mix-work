@@ -3,6 +3,4 @@ bin
 obj
 .pyc
 .db
-
-# mstest test results
-TestResults
+java/bin
