@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>starwolf.ch</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<link rel="stylesheet" href="content/css/TimeTweet.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>	
+</head> 
+<body> 
+<section id="overview" data-role="page"><!-- /page -->
+	<header data-role="header" data-theme="a" data-position="fixed"><!-- /header -->
+		<h4>starwolf.ch</h4>
+		<nav data-role="navbar" data-theme="c">
+	        <ul>
+	            <li><a href="index.html" data-icon="home" class="ui-state-persist">Overview</a></li>
+                <li><a href="add.html" data-icon="plus">Add</a></li>
+                <li><a href="edit.html" data-icon="forward">Edit</a></li>
+                <li><a href="submit.html" data-icon="gear">Submit</a></li>
+                <li><a href="login.html" data-icon="star">Login</a></li>            
+            </ul>
+        </nav>
+	</header>	
+	<div data-role="content"><!-- /content -->	    
+	    <h4>List for: Project X</h4>    
+		<ul data-role="listview" data-inset="true" data-filter="true">
+		    <li data-role="list-divider" role="heading"> Sprint 01</li>
+		    <li>		        
+                <h4>Build UI (Mock-Up) with JQuery Mobile</h4>
+                <p>
+                 Build a static UI (Mock-UP) to show the Interface for the mobile App.<br />
+                 JQuery Mobile to build the prototype.
+                </p>
+                <br />
+                <p><strong>PBI:</strong>UI Design</p>
+                <p><strong>State:</strong>Committed</p>
+                <p><strong>Owner:</strong>dani</p>        
+		        <p class="ui-li-aside">
+	                <a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="gear">In Progress</a>		            
+	                <a href="#" data-role="button" data-mini="true" data-inline="true" title="Story Points">8</a>
+                </p>		        		                
+		    </li>		    
+		    <li>		        
+                <h4>Add and Setup MVC 4</h4>
+                <p>
+                 Update Virtualbox Image with Win7 and VS<br />
+                 Add and Setup MVC 4<br />
+                 Install/update all Nuget packages<br />
+                 Install ReSharper<br />
+                 Setup Project folder, sub projects structure<br />
+                 Setup git on github <br />
+                </p>
+                <br />
+                <p><strong>PBI:</strong>Infrastructure</p>
+                <p><strong>State:</strong>Committed</p>
+                <p><strong>Owner:</strong>dani</p>        
+		        <p class="ui-li-aside">
+	                <a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="gear">To Do</a>		            
+	                <a href="#" data-role="button" data-mini="true" data-inline="true" title="Story Points">3</a>
+                </p>		        		                
+		    </li>
+	        <li>		        
+                <h4>Add IoC</h4>
+                <p>
+                 Add IoC ninject (ninject.org)<br />
+                 Setup IoC<br />                 
+                </p>
+                <br />
+                <p><strong>PBI:</strong>Infrastructure</p>
+                <p><strong>State:</strong>Committed</p>
+                <p><strong>Owner:</strong>dani</p>        
+		        <p class="ui-li-aside">
+	                <a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="gear">To Do</a>		            
+	                <a href="#" data-role="button" data-mini="true" data-inline="true" title="Story Points">3</a>
+                </p>		        		                
+		    </li>	        
+	        <li><a href="#">Unit of Work implementation</a></li>
+	        <li><a href="#">Service Locator implementation</a></li>
+	        <li><a href="#">Add Service for Twitter</a></li>
+	        <li><a href="#">Add Service for Time Tweet</a></li>
+	        <li><a href="#">Refactoring and Code Review</a></li>
+	        <li><a href="#">Add Unit Test and Moq for the Controller</a></li>
+	        <li data-role="list-divider" role="heading">
+        </ul>		
+	</div>
+	<footer id="footer" data-role="footer" data-position="fixed" data-theme="c">
+	<h4>2012@starwolf.ch</h4>
+	</footer>
+</section>
+</body>
+</html>
+
