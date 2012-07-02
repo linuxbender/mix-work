@@ -1,0 +1,20 @@
+# <fs>			<mountpoint>	<type>		<opts>		<dump/pass>
+
+/dev/sda1               /boot           ext4            noauto,noatime  1 2
+/dev/sda3               /               ext4            noatime         0 1
+/dev/sda2               none            swap            sw              0 0
+
+
+/dev/sdb1		none		swap		sw		0 0
+/dev/sdb2		/mnt/sdb	ext4		noatime		0 1
+
+/dev/sr0              /mnt/cdrom      auto            	noauto,ro       0 0
+/dev/sdc1             /mnt/usb        auto            	noauto,user,rw,exec 0 0
+
+proc                    /proc           proc            defaults        0 0
+
+# nas
+192.168.1.30:/Download /nas/Downloads   nfs             defaults,noatime,user           0 0
+192.168.1.30:/Raid     /nas/Source      nfs             defaults,noatime,user           0 0
+#192.168.1.30:/ISO-blender-26   /nas/ISO/blender-2.6    nfs             defaults,noatime,user           0 0
+192.168.1.30:/RoR   /nas/ISO/RoR    nfs             defaults,noatime,user           0 0
