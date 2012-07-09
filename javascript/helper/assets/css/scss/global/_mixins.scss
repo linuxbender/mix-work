@@ -1,0 +1,31 @@
+﻿@mixin rounded($radius: 4px){
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin font-setup{
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  color: $grayMid;
+}
+
+@mixin height-setTo($height: 10px, $factor:10){
+  height: $height * $factor;
+}
+
+@mixin padding-setTo($size: 2px){
+  padding: $size;
+}
+
+@mixin clearfix {
+  display: inline-block;
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  * html & { height: 1px }
+}

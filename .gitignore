@@ -4,3 +4,4 @@ obj
 .pyc
 .db
 java/bin
+.sass-cache

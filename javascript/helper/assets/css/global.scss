@@ -1,0 +1,62 @@
+﻿/*
+  v0.1 linuxbender
+  run in cmd :
+  sass --watch -I scss/components scss/global global.scss:global.css
+*/
+
+/*
+ import sass assets 
+*/
+@import "_reset";
+@import "_fonts";
+@import "_colors";
+@import "_mixins";
+
+/*
+  app vars
+*/
+$radius: 6px;
+$ratio: 1.62;
+
+$containerWidth: 1100px;
+$contentWidth: $containerWidth / $ratio;
+// debug output
+@debug $contentWidth;
+
+/*
+  css output
+*/
+body {
+  @include font-setup;
+  margin: 0;
+}
+
+header {
+  @include height-setTo(20px);
+  background-color: lighten($blackSolid, 20%);
+  color: lighten($whiteSolid, 20%);
+  @include padding-setTo;
+}
+
+footer {
+  @include height-setTo;
+  background-color: lighten($blackSolid, 40%);
+  color: $whiteSolid; 
+  @include padding-setTo;
+}
+#content {
+  background-color: darken($whiteSolid, 20%);
+  width: $containerWidth;
+  margin-left: auto;
+  margin-right: auto;
+  padding: $radius * 2;  
+  @include rounded($radius);
+  color: lighten($blackSolid, 10%);
+  section {    
+    div {
+      background-color: darken($whiteSolid, 10%);
+      min-height: 300px;
+      @include padding-setTo;
+    }
+  }
+}

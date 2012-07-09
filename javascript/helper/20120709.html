@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Javascript Class and Object using</title>
+    <!-- using SASS to create the css -->
+    <link href="assets/css/global.css" rel="stylesheet" />
+    <script src="assets/js/knockout-2.1.0.debug.js"></script>
+    <script src="assets/js/jquery-1.7.2.debug.js"></script>
+  </head>
+  <body>
+  <section id="content">
+    <header>
+      <h4>my header</h4>
+    </header>
+    <section>
+      <div>my content</div>
+    </section>
+    <footer>
+      my footer
+      </footer>
+    </section>
+  </body>
+  <script type="text/javascript">
+    // for demo reason inline js
+    // define the GameObject constructor function
+    var myObject = function(name){
+      this.name = name;
+      return this;
+    };
+    console.log(typeof myObject.prototype); // object
+    // (re)define the GameObject prototype object
+    myObject.prototype.getName = function(){
+      return this.name;
+    };
+    
+    // create instance
+    var myInstance = new myObject("linuxbender");
+    // getName
+    console.log(myInstance.getName());
+    // property
+    console.log(myInstance.name);
+    
+    // extension js String object
+    if(!String.prototype.trim) {
+      String.prototype.trim = function() {
+          return this.replace(/^\s+|\s+$/g, "");
+      };
+    }
+    var foo = "   Hello World  ";
+    console.log(foo);
+    console.log(foo.length);
+    console.log("my Trim extension :");
+    
+    foo = foo.trim();
+    console.log(foo);
+    console.log(foo.length);
+  </script>
+</html>
