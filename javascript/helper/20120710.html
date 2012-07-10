@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Javascript Class and Object using</title>
+    <title>Javascript Class and Object using with namespace</title>
     <!-- using SASS to create the css -->
     <link href="assets/css/global.css" rel="stylesheet" />
     <script src="assets/js/knockout-2.1.0.debug.js"></script>
@@ -26,17 +26,17 @@
     var app = app || {};
     // for demo reason inline js
     // define the GameObject constructor function
-    var myClass = function(name, factor){
+    app.myClass = function(name, factor){
       if (typeof name === "string")
       this.name = name;
       
       if (typeof factor === "number")
       this.factor = factor;
     };
-    console.log(typeof myClass.prototype); // object
+    console.log(typeof app.myClass.prototype); // object
     
     // (re)define the GameObject prototype object
-    myClass.prototype = {  
+    app.myClass.prototype = {  
       posX: function() {  
         return Math.floor((Math.random() * this.factor) + 1);  
       },
@@ -45,11 +45,11 @@
       },
       getName: function(){
         return this.name;
-      }
+      }      
     };  
     
     // create instance
-    var myInstance = new myClass("linuxbender", 25);
+    var myInstance = new app.myClass("linuxbender", 100);
     // getName
     console.log(myInstance.getName());
     // posX and posY
