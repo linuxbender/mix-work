@@ -1,16 +1,16 @@
 #!/bin/bash
 # "##########################################"
 # "##########################################"
-# "#                                        #"
-# "# Screen Recording v 0.43 beta           #"
-# "# daniel glenn                           #"
-# "# www.starwolf.ch                        #"
-# "# 01.Mai.2012	                        #"
-# "#                                        #"
+# "#                                                                                                              #"
+# "# Screen Recording v 0.44 beta                                                         #"
+# "# daniel glenn                                                                                       #"
+# "#                                                                                                              #"
+# "# 09.Feb.2013	                                                                            #"
+# "#                                                                                                              #"
 # "##########################################"
 # "##########################################"
 
-# http://creativecommons.org/licenses/by-nc-sa/3.0/
+# MIT license - http://www.opensource.org/licenses/mit-license.php
 
 ################################################
 # Configuration
@@ -18,7 +18,7 @@
 
 # Set output folder
 OutDir=$(echo ~/Videos/)
-
+echo $OutDir
 #Random Video Name
 curDate=$(date +%Y_%h_%d_%H%M%S)
 
@@ -35,7 +35,7 @@ r="-r 30"
 acodec="-acodec pcm_s16le"
 
 #Audio input - ist bei mir der Alsa device vom USB Micro von meinem Kopfhoerer
-i="-i hw:0,0"
+i="-i hw:2,0"
 
 #Video codec and compress mode
 vcodec="-vcodec libx264 -preset ultrafast -crf 0"
