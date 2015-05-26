@@ -1,7 +1,7 @@
 ### emerge
 
 bad-boy way to update the full gentoo linux box
-```bash
+```
 root# emerge --update --deep --with-bdeps=y --newuse @world
 ```
 this take a while.. :-P
