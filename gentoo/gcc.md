@@ -1,23 +1,23 @@
-# Update GCC 
-### Short Version
+## Update GCC 
+Short Version - as su/root
 ```
 root# emerge sync
 root# emerge -u sys-devel/gcc
 root# gcc-config -l
 ```
-### Select your new version from the list
+Select your new version from the list
 ```
 root# gcc-config 2 
 ```
-### Use new env and clean up system
+Use the new env and clean-up your box
 ```
-root #env-update && source /etc/profile
-root #emerge --oneshot libtool
-revdep-rebuild
+root# env-update && source /etc/profile
+root# emerge --oneshot libtool
+root# revdep-rebuild
 ```
 ### Check new version
 ```
-root #gcc --version
-root #emerge -C =sys-devel/gcc-4.8.4
+root# gcc --version
+root# emerge -C =sys-devel/gcc-4.8.4
 ```
 have fun with your new c++ compiler
