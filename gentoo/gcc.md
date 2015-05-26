@@ -1,4 +1,4 @@
-## Update GCC 
+### Update GCC 
 Short Version - as su/root
 ```
 root# emerge sync
@@ -15,7 +15,7 @@ root# env-update && source /etc/profile
 root# emerge --oneshot libtool
 root# revdep-rebuild
 ```
-### Check new version
+Check new version
 ```
 root# gcc --version
 root# emerge -C =sys-devel/gcc-4.8.4
