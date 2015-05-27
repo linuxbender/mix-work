@@ -1,7 +1,7 @@
 # Sudo
 Granting Permissions to the **wheel** group in your system
 > edit sudo config files as su / root
-```Bash Androidstudio
+```Bash
 #!/bin/bash
 root$ nano - w /etc/sudoers
 ```
