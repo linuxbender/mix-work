@@ -1,8 +1,7 @@
 # Sudo
 Granting Permissions to the **wheel** group in your system
 > edit sudo config files as root
-```bash
-#!/bin/bash
+```
 root$ nano - w /etc/sudoers
 ```
 > wheel group with emerge grant
