@@ -2,7 +2,7 @@
 Granting Permissions to the **wheel** group in your system
 > edit sudo config files as su / root
 ```
-nano - w /etc/sudoers
+root$ nano - w /etc/sudoers
 ```
 > wheel group with emerge grant
 ```
@@ -17,5 +17,5 @@ nano - w /etc/sudoers
 Bash Completion add **Complete -cf sudo** to your bashrc (current user)
 > The bashrc is to find under your home folder in your linux-box
 ```
-user $sudo echo "complete -cf sudo" >> $HOME/.bashrc
+user$ sudo echo "complete -cf sudo" >> $HOME/.bashrc
 ```
