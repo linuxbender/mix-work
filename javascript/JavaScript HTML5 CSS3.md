@@ -5,7 +5,9 @@
   1. [HTML5](#html5)
   1. [CSS3](#css-3)
   1. [Browser](#browser)
-  2. [Workflow](#workflow)
+  1. [Workflow](#workflow)
+  1. [ES6 to ES5 Compiler](#es6-to-es5-compiler) 
+  1. [IDE] (#ide)
 
 ## Javascript
 - q
