@@ -1,6 +1,6 @@
 ## Setup nodejs on mac and linux
-In my case I use *NVM* like *RVM* from the ruby world. for this you need no Root Access.
-It will run unter your user profile.
+In my case I use *NVM* like *RVM* from the ruby world, for this you need no Root Access.
+It will run unter your user profile :-) sweet
 
 ### Install Node Version Manager (mac and linux)
 You need access to the internet. Git, curl or wget shoud installed on your box.
@@ -21,6 +21,8 @@ Use the new version
 
 Set as default in your profile env
 > nvm alias default stable
+
+Delete/uninstall *NVM*, just remove ~/.nvm, ~/.npm, and ~/.bower folders in your user profile :-)
 
 More information on:
 [nvm] (https://github.com/creationix/nvm)
