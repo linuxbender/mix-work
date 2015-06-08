@@ -1,6 +1,8 @@
 
 Nodejs and Macbook Pro
 =========
+**FYI**: I use now :[NVM install] (https://github.com/linuxbender/mix-work/tree/master/nodejs.org)
+
 ### How to install NodeJs and NPM on a Macbook Pro
 In this version you don't need to install with Sudo permissions.
 ```bash
