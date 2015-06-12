@@ -6,7 +6,7 @@ Update packages for the system
 > sudo apt-get update
 
 Install kernel header for virtualbox kernel guest system
-> sudo apt-get install build-essential linux-headers-$(uname -r)
+> sudo apt-get install build-essential linux-headers-$(uname -r) dkms
 
 Run virtualbox guest system script for linux  (Host+D)
 > sudo ./VBoxLinuxAddition.run
