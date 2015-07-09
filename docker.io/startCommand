@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# clean up
+
+docker rm appExpress
+docker rm postgresDB
+
+# start db
+docker run -it -d --name postgresDB --volumes-from postgresData -e POSTGRES_PASSWORD=tcuser postgres
+
+# start web
+cd ~/Git/app/src/server
+
+docker run -it -d --name appExpress -v "$PWD":/home/docker/Git/app/src/server -w ~/Git/app/src/server -p 80:3000 --link postgresDB node node app.js
