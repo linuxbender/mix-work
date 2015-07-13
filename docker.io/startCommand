@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# clean up
-
-docker rm appExpress
-docker rm postgresDB
-
 # start db
 docker run -it -d --name postgresDB --volumes-from postgresData -e POSTGRES_PASSWORD=tcuser postgres
 
