@@ -4,4 +4,5 @@ processList=$(docker ps | grep 'postgresDB\|appExpress' | awk '{print $1}')
 
 for item in $processList; do
 	docker stop $item
+	docker rm $item
 done
