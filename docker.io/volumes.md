@@ -1,7 +1,6 @@
 # volum and linking and backup commands
 
-> create a volum
-
+> create a volume
 ```bash
 docker create -v /var/lib/postgresql/data --name postgres9.4-data busybox
 ```
